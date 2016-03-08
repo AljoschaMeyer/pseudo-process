@@ -1,4 +1,5 @@
-# pseudo-process [![Build Status](https://travis-ci.org/AljoschaMeyer/process-group.svg?branch=master)](https://travis-ci.org/AljoschaMeyer/process-group)
+# pseudo-process
+[![Build Status](https://travis-ci.org/AljoschaMeyer/process-group.svg?branch=master)](https://travis-ci.org/AljoschaMeyer/process-group)
 
 > Abstraction over child_process' api, with some convenient chaining methods.
 
