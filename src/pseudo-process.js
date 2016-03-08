@@ -22,6 +22,10 @@ export default class PseudoProcess extends EventEmitter {
 		this.stderr = stdio[2];
 	}
 
+	/**
+	 * Send the given signal to the killHandler.
+	 * @param  {string}	signal The signal to send. Defaults to 'SIGTERM'.
+	 */
 	kill(signal = 'SIGTERM') {
 		this.killHandler(signal);
 	}

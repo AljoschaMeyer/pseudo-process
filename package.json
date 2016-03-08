@@ -1,7 +1,7 @@
 {
   "name": "process-group",
   "version": "0.0.0",
-  "description": "Abstraction over child_process, can recursively combine other process-groups.",
+  "description": "Abstraction over child_process' api, with some convenient chaining methods.",
   "license": "MIT",
   "repository": "AljoschaMeyer/process-group",
   "author": {
@@ -18,7 +18,8 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "xo src/**/*.js && ava",
-    "start": "babel -w src -d lib "
+    "start": "babel -w src -d lib",
+    "prepublish": "npm run build"
   },
   "main": "lib/process-group.js",
   "keywords": [
