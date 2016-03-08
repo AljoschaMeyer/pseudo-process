@@ -131,3 +131,24 @@ test.cb('wrapChildProcess propagates the child\'s events to the PseudoProcess', 
 	child.emit('foo', eventArg);
 	child.emit('error', eventArg);
 });
+
+test.cb('pipe pipes stdout of the pp into stdin of the second pp', t => {
+	t.plan(2);
+
+	const child1 = spawn('echo', ['foo', 'bar']);
+	const child2 = spawn('grep', ['foo']);
+
+	const pp1 = PseudoProcess.wrapChildProcess(child1);
+	const pp2 = PseudoProcess.wrapChildProcess(child2);
+
+	pp2.stdin.on('pipe', () => {
+		t.pass();
+	});
+
+	pp2.stdout.on('data', data => {
+		t.same(data.toString(), 'foo bar\n');
+		t.end();
+	});
+
+	pp1.pipe(pp2);
+});
